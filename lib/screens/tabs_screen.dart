@@ -12,15 +12,18 @@ class TabsScreen extends StatefulWidget {
 class _TabsScreenState extends State<TabsScreen> {
   int _selectedIndex = 0;
 
+  final List<Widget> _screens = [
+    const CategoriesScreen(),
+    const FavoritesScreen(),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Yemekler"),
       ),
-      body: _selectedIndex == 0
-          ? const CategoriesScreen()
-          : const FavoritesScreen(),
+      body: _screens[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         onTap: (index) => setState(() {
           _selectedIndex = index;
