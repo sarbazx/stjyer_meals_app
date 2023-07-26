@@ -1,24 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:stajyer_meals_app/providers/meals_provider.dart';
 
 import '../components/meals_list.dart';
-import '../models/meal.dart';
 
-class FavoritesScreen extends StatelessWidget {
+class FavoritesScreen extends ConsumerWidget {
   const FavoritesScreen({
     super.key,
-    required this.favoritesMeal,
-    required this.toggleFavorite,
   });
 
-  final List<Meal> favoritesMeal;
-  final Function(Meal) toggleFavorite;
-
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final favoriteMeals = ref.watch(favoriteMealsProvider);
     return MealsList(
-      meals: favoritesMeal,
-      favoriteMeals: favoritesMeal,
-      toggleFavorite: toggleFavorite,
+      meals: favoriteMeals,
     );
   }
 }
