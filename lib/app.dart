@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:stajyer_meals_app/screens/tabs_screen.dart';
+import 'screens/tabs_screen.dart';
 
 final theme = ThemeData(
   useMaterial3: true,

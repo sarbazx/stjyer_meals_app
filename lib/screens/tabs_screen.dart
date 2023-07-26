@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:stajyer_meals_app/screens/categories_screen.dart';
-import 'package:stajyer_meals_app/screens/favorites_screen.dart';
+import '../data/data.dart';
+import '../models/meal.dart';
+import 'categories_screen.dart';
+import 'favorites_screen.dart';
 
 class TabsScreen extends StatefulWidget {
   const TabsScreen({super.key});
@@ -12,6 +14,18 @@ class TabsScreen extends StatefulWidget {
 class _TabsScreenState extends State<TabsScreen> {
   int _selectedIndex = 0;
 
+  final List<Meal> _favoritesMeal = [dummyMeals[0]];
+
+  void _toggleFavoriteMeal(Meal meal) {
+    setState(() {
+      if (_favoritesMeal.contains(meal)) {
+        _favoritesMeal.remove(meal);
+      } else {
+        _favoritesMeal.add(meal);
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,8 +33,14 @@ class _TabsScreenState extends State<TabsScreen> {
         title: const Text("Yemekler"),
       ),
       body: _selectedIndex == 0
-          ? const CategoriesScreen()
-          : const FavoritesScreen(),
+          ? CategoriesScreen(
+              favoriteMeals: _favoritesMeal,
+              toggleFavorite: _toggleFavoriteMeal,
+            )
+          : FavoritesScreen(
+              favoritesMeal: _favoritesMeal,
+              toggleFavorite: _toggleFavoriteMeal,
+            ),
       bottomNavigationBar: BottomNavigationBar(
         onTap: (index) => setState(() {
           _selectedIndex = index;
