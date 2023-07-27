@@ -39,6 +39,7 @@ class CategoriesScreen extends StatelessWidget {
 
     // final isSmall = MediaQuery.of(context).size.height > 400;
     // final isDesktop = MediaQuery.sizeOf(context).width > 600;
+
     return OrientationBuilder(builder: (context, orientation) {
       return GridView.builder(
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(

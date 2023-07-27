@@ -29,8 +29,11 @@ class MealScreen extends ConsumerWidget {
           ),
         ],
       ),
-      body: Center(
-        child: Image.network(meal.imageUrl),
+      body: Hero(
+        tag: meal.id,
+        child: Center(
+          child: Image.network(meal.imageUrl),
+        ),
       ),
     );
   }

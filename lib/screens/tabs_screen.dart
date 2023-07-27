@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+
 import 'categories_screen.dart';
 import 'favorites_screen.dart';
+import 'login_screen.dart';
 
 class TabsScreen extends StatefulWidget {
   const TabsScreen({super.key});
@@ -15,6 +17,7 @@ class _TabsScreenState extends State<TabsScreen> {
   final List<Widget> _screens = [
     const CategoriesScreen(),
     const FavoritesScreen(),
+    const LoginScreen(),
   ];
 
   @override
@@ -37,6 +40,10 @@ class _TabsScreenState extends State<TabsScreen> {
           BottomNavigationBarItem(
             icon: Icon(Icons.filter),
             label: 'Favorites',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.login),
+            label: 'Login',
           ),
         ],
       ),

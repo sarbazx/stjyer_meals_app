@@ -26,8 +26,15 @@ class MealsList extends StatelessWidget {
             ),
           );
         },
-        child: Card(
-          child: Image.network(meals[index].imageUrl),
+        child: Hero(
+          tag: meals[index].id,
+          child: SizedBox(
+            height: 50,
+            width: 50,
+            child: Card(
+              child: Image.network(meals[index].imageUrl),
+            ),
+          ),
         ),
       ),
     );
