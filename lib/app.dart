@@ -17,7 +17,9 @@ class App extends StatelessWidget {
     return MaterialApp(
       theme: theme,
       debugShowCheckedModeBanner: false,
-      home: const TabsScreen(),
+      home: const SafeArea(
+        child: TabsScreen(),
+      ),
     );
   }
 }

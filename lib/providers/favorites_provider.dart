@@ -7,13 +7,14 @@ class FavoriteMeals extends StateNotifier<List<Meal>> {
 
   void toggleFavoriteMeal(Meal meal) {
     if (state.contains(meal)) {
-      List<Meal> removedMeals = [];
-      for (var element in state) {
-        if (element != meal) {
-          removedMeals.add(element);
-        }
-      }
-      state = removedMeals;
+      state = state.where((element) => element.id != meal.id).toList();
+      // List<Meal> removedMeals = [];
+      // for (var element in state) {
+      //   if (element != meal) {
+      //     removedMeals.add(element);
+      //   }
+      // }
+      // state = removedMeals;
     } else {
       state = [...state, meal];
     }
